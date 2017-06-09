@@ -8,6 +8,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Router, Route, browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
 
+import './styles/app.scss';
 import { reducer } from './reducers/reducer';
 import rootSaga from './sagas/sagas';
 import HelloWorld from './components/hello_world';

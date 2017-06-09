@@ -8,17 +8,24 @@ module.exports = {
     './src/index'
   ],
   output:{
-    path: __dirname,
-    filename: './public/bundle.js'
+    path: path.join(__dirname, 'public'),
+    filename: 'bundle.js',
+    publicPath: '/static/'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],
   module: {
-    loaders: [{
+    loaders: [
+    {
       test: /\.js$/,
       loaders: ['react-hot', 'babel'],
       include: path.join(__dirname, 'src')
-    }]
+    }, {
+      test: /\.scss$/,
+      loader: 'style!css!sass?sourceMap',
+      include: path.join(__dirname, 'src')
+    }
+    ]
   }
 };
